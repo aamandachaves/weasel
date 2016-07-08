@@ -56,6 +56,7 @@ var print = function(str){
   var init_str = randomString(WEASEL.length);
   var iteration = 1;
   var mayor_score = 0;
+  var mayor_copy;
 
   while(!isTarget(init_str)){
     for (var i = 1; i <= 100; i++){
@@ -63,9 +64,10 @@ var print = function(str){
       var score = getScore(copy);
       if (score > mayor_score){
         mayor_score = score;
-        init_str = copy;
+        mayor_copy = copy;
       }
     }
+    init_str = mayor_copy;
     print("Iteration: " + iteration + " String: " + init_str);
     iteration++;
   }
