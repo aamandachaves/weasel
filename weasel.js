@@ -2,16 +2,7 @@
 
 const WEASEL = "METHINKS IT IS LIKE A WEASEL";
 const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-const VARIATION = 5
-
-var randomString = function(){
-  var text = "";
-
-  for(var i = 0; i < WEASEL.length; i++)
-    text += ALPHABET.charAt(Math.floor(Math.random() * ALPHABET.length));
-
-  return text;
-};
+const VARIATION = 5;
 
 var randomNumber = function(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -23,7 +14,16 @@ var mustChangeChar = function(){
 
 var randomChar = function(){
   return ALPHABET[randomNumber(0, ALPHABET.length - 1)];
-}
+};
+
+var randomString = function(){
+  var text = "";
+
+  for(var i in WEASEL)
+    text += randomChar();
+
+  return text;
+};
 
 var getCopy = function(str){
   var copy = "";
